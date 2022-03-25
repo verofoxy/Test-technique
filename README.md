@@ -2,7 +2,6 @@
 <br/>
 
 ## Consigne : 
-#
 
 ### En utilisant la bibliothèque Rx.js (https://rxjs-dev.firebaseapp.com/guide/overview),
 ### console.log le nombre total de click sur la page toutes les 1000 millisecondes sauf
@@ -15,11 +14,11 @@
 
 
 ## Les PreRequis
-#
+
 ### installer node. js et npm 
 
 <br/>
 
 ## pour run l'appliation
-#
+
 ### Tapper sur votre terminal "npm start"
