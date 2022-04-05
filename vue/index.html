@@ -321,10 +321,7 @@
     </h2>
 
 
-
-
-
-    <div id="appd" class="appd">
+    <div id="appz" class="appz">
         <h1>{{ restaurantName }}</h1>
         <p class="description">
             Bienvenue dans notre café {{ restaurantName }}! Nous sommes réputés pour
@@ -342,7 +339,8 @@
                     <p>En stock</p>
                     <p>En rupture de stock</p>
                     <div>
-                        <label for="add-item-quantity">Quantité : {{item.quantity}}</label>
+                        <label for="add-item-quantity">Quantité :h {{name}}v</label>
+
                         <input id="add-item-quantity" type="number" />
 
                         <button @click="addToShoppingCart(item.quantity)">Ajouter au panier d'achat</button>
@@ -373,13 +371,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        const appd = new Vue({
-            el: "#appd",
+        const appz = new Vue({
+            el: "#appz",
             data: {
                 address: "18 avenue du Beurre, Paris, France",
                 email: "hello@cafewithavue.bakery",
                 phone: "01 88 88 88 88",
                 restaurantName: "La belle vue",
+                shoppingCart: 0,
                 simpleMenu: [
                     {
                         name: "Croissant",
