@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Page en vue.js yayyyy</title>
+</head>
+
+<body>
+
+    <h4>
+        first step : print data vero's bio
+    </h4>
+
+    <div id="app">
+        <h1> Vero's bio</h1>
+        <h2> i'm {{ name }}</h3>
+            <h2> i'm {{ age }}</h2>
+            <h2> i'm {{ job }}</h2>
+            <h2> i'm {{ city }}</h2>
+
+            <h4>
+                mini exo step 1 :
+            </h4>
+            <ul>
+                <li>
+                    {{ (2 + 8) * 10 }}
+                </li>
+
+                <li>
+                    {{ "alexia".toUpperCase() }}
+                </li>
+
+                <li>
+                    {{ 2 > 0 ? 'Deux est plus grand que zéro' : 'Vous ne verrez jamais cette phrase' }}
+                </li>
+            </ul>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                name: "veronia",
+                age: "22",
+                job: "étudiante",
+                city: "paris"
+
+            },
+        });
+
+    </script>
+
+
+
+    <!-- step two : print data using some methods Restautant menu -->
+    <div id="app2">
+
+        <h1>vero's shopping list</h1>
+        <ul>
+            <li>Apples: {{costofApples}}€</li>
+            <li>Bananes: {{costofBananas}}€</li>
+            <li>Coconuts: {{ costOfCoco}}€</li>
+        </ul>
+        <p>Total: {{costofApples + costofBananas + costOfCoco}} €</li>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        const appp = new Vue({
+            el: '#app2',
+            data: {
+                costofApples: 5,
+                costofBananas: 2,
+                costOfCoco: 8,
+            },
+        });
+    </script>
+
+
+    <h4>
+        mini exo step 2
+    </h4>
+
+    <div id="app4" class="app4">
+        <h1>{{ restaurantName }}</h1>
+        <p class="description">
+            Bienvenue dans notre café {{ restaurantName }}! Nous sommes réputés pour
+            notre pain et nos merveilleuses pâtisseries. Faites vous plaisir dès le
+            matin ou avec un goûter réconfortant. Mais attention, vous verrez qu'il
+            est difficile de s'arrêter.
+        </p>
+
+        <h2>Contactez nous</h2>
+        <p>Adresse : {{ address }}</p>
+        <p>Téléphone : {{ phone }}</p>
+        <p>Email : {{ email }}</p>
+        <p>Horaires :</p>
+        <ul>
+            <li>L-V: 06:00 à 16:00</li>
+            <li>Samedi: 07:00 à 14:00</li>
+            <li>Dimanche: 07:00 à 12:00</li>
+        </ul>
+
+        <footer class="footer">
+            <p>Copyright {{ restaurantName }} 2019</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app4 = new Vue({
+            el: "#app4",
+            data: {
+                address: "18 avenue du Beurre, Paris, France",
+                email: "veronia@hellosafe.fr",
+                phone: "01 88 88 88 88",
+                restaurantName: "la felicita "
+            },
+            computed: {
+                copyright() {
+                    const currentYear = new Date().getFullYear()
+
+                    return `Copyright ${this.restaurantName} ${currentYear}`
+                }
+            }
+        })
+    </script>
+
+
+
+    <h4>
+        third step : print data using some methods Restautant menu
+    </h4>
+
+
+
+    <div id="appt">
+
+        <ul>
+            <li v-for="item in shoppingCart">
+                <a v-bind:href="item.url">
+                    {{item.label}}
+                </a>
+                : {{item.cost}} €
+            </li>
+        </ul>
+        <p>Total: {{totalPrice}} €</li>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        const appt = new Vue({
+            el: '#appt',
+            data: {
+                shoppingCart: [
+                    { label: 'apple', cost: 6, url: '/apples.html' },
+                    { label: 'Coconuts', cost: 8, url: '/coconuts.html' },
+                    
+                ]
+            },
+            computed: {
+                totalPrice() {
+                    let total = 0;
+                    this.shoppingCart.forEach(item => {
+                        total += item.cost;
+                    });
+                    return total;
+                }
+            }
+        });
+    </script>
+
+
+
+
+
+
+    <h4>
+        mini exo step 3
+    </h4>
+
+    <div id="app5">
+        <button @click="showModal = !showModal">Display Modal</button>
+        <div v-show="showModal" class="modal"> yay you opened me</div>
+    </div>
+
+    <script>
+        const app5 = new Vue({
+            el: '#app5',
+            data: {
+                showModal: true
+            }
+        })
+    </script>
+
+
+    <div id="apper" class="apper">
+        <h1>{{ restaurantName }}</h1>
+        <p class="description">
+            Bienvenue dans notre café {{ restaurantName }}! Nous sommes réputés pour
+            notre pain et nos merveilleuses pâtisseries. Faites vous plaisir dès le
+            matin ou avec un goûter réconfortant. Mais attention, vous verrez qu'il
+            est difficile de s'arrêter.
+        </p>
+
+        <section class="menu">
+            <h2>Menu</h2>
+            <div class="menu-item">
+                <img class="menu-item__image" width="600" height="500"
+                    src="https://assets.lovelace-balzac.com/cafecreme/cafe-creme-marais-terrasse-paris.jpg"
+                    alt="image-cafe-creme" />
+                <div>
+                    <li v-for="item in simpleMenu">
+                        {{item.name}} : {{item.quantity}}
+                        
+                    </li>
+                    <p>En stock</p>
+                    <p>En rupture de stock</p>
+                    <div>
+                        <label for="add-item-quantity">Quantité :</label>
+                        <input id="add-item-quantity" type="number" />
+                        <button>Ajouter au panier d'achat</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const apper = new Vue({
+            el: "#apper",
+            data: {
+                address: "18 avenue du Beurre, Paris, France",
+                email: "hello@cafewithavue.bakery",
+                phone: "01 88 88 88 88",
+                restaurantName: "le café crème",
+                simpleMenu: [
+                    {
+                        name: "Croissant",
+                        image: {
+                            source: "./images/croissant.jpg",
+                            alt: "Un croissant"
+                        },
+                        inStock: true,
+                        quantity: 1
+                    },
+                    {
+                        name: "Baguette de pain",
+                        image: {
+                            source: "./images/french-baguette.jpeg",
+                            alt: "Quatre baguettes de pain"
+                        },
+                        inStock: true,
+                        quantity: 1
+                    },
+                    {
+                        name: "Éclair",
+                        image: {
+                            source: "./images/eclair.jpg",
+                            alt: "Éclair au chocolat"
+                        },
+                        inStock: false,
+                        quantity: 1
+                    }
+                ]
+            },
+            computed: {
+                copyright() {
+                    const currentYear = new Date().getFullYear()
+
+                    return `Copyright ${this.restaurantName} ${currentYear}`
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
