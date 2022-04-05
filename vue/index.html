@@ -2,37 +2,25 @@
 <html lang="fr">
 
 <head>
-    <title>Page en vue.js yayyyy</title>
+    <title>vero vue</title>
 </head>
 
 <body>
 
-    <h4>
-        first step : print data vero's bio
-    </h4>
+    <h1> first step : print data vero's bio</h1>
 
     <div id="app">
-        <h1> Vero's bio</h1>
-        <h2> i'm {{ name }}</h3>
-            <h2> i'm {{ age }}</h2>
-            <h2> i'm {{ job }}</h2>
-            <h2> i'm {{ city }}</h2>
+        <h2> Vero's bio</h3>
+            <h3> i'm {{ name }}</h3>
+            <h3> i'm {{ age }}</h3>
+            <h3> i'm {{ job }}</h3>
+            <h3> {{ city }}</h3>
 
-            <h4>
-                mini exo step 1 :
-            </h4>
+            <h2> mini exo step 1 : </h2>
             <ul>
-                <li>
-                    {{ (2 + 8) * 10 }}
-                </li>
-
-                <li>
-                    {{ "alexia".toUpperCase() }}
-                </li>
-
-                <li>
-                    {{ 2 > 0 ? 'Deux est plus grand que zéro' : 'Vous ne verrez jamais cette phrase' }}
-                </li>
+                <li> {{ (2 + 8) * 10 }}</li>
+                <li> {{ "alexia".toUpperCase() }} </li>
+                <li> {{ 2 > 0 ? 'Deux est plus grand que zéro' : 'Vous ne verrez jamais cette phrase' }}</li>
             </ul>
     </div>
 
@@ -53,12 +41,12 @@
 
     </script>
 
+    <h3>------------------------------------------------</h3>
+    <h1> second step : print data of shopping list</h1>
 
-
-    <!-- step two : print data using some methods Restautant menu -->
     <div id="app2">
 
-        <h1>vero's shopping list</h1>
+        <h2>vero's shopping list</h2>
         <ul>
             <li>Apples: {{costofApples}}€</li>
             <li>Bananes: {{costofBananas}}€</li>
@@ -81,9 +69,7 @@
     </script>
 
 
-    <h4>
-        mini exo step 2
-    </h4>
+    <h2> mini exo step 2 </h2>
 
     <div id="app4" class="app4">
         <h1>{{ restaurantName }}</h1>
@@ -131,12 +117,9 @@
     </script>
 
 
+    <h3>------------------------------------------------</h3>
 
-    <h4>
-        third step : print data using some methods Restautant menu
-    </h4>
-
-
+    <h2> third step : print data using some methods Restautant menu </h2>
 
     <div id="appt">
 
@@ -160,7 +143,7 @@
                 shoppingCart: [
                     { label: 'apple', cost: 6, url: '/apples.html' },
                     { label: 'Coconuts', cost: 8, url: '/coconuts.html' },
-                    
+
                 ]
             },
             computed: {
@@ -176,13 +159,7 @@
     </script>
 
 
-
-
-
-
-    <h4>
-        mini exo step 3
-    </h4>
+    <h2> exemple 1: </h2>
 
     <div id="app5">
         <button @click="showModal = !showModal">Display Modal</button>
@@ -198,6 +175,7 @@
         })
     </script>
 
+    <h2> exemple 2: </h2>
 
     <div id="apper" class="apper">
         <h1>{{ restaurantName }}</h1>
@@ -217,7 +195,7 @@
                 <div>
                     <li v-for="item in simpleMenu">
                         {{item.name}} : {{item.quantity}}
-                        
+
                     </li>
                     <p>En stock</p>
                     <p>En rupture de stock</p>
@@ -280,6 +258,171 @@
         })
     </script>
 
+    <h2> exemple 3</h2>
+
+    <div id="appv">
+
+        <div>
+            <h2> show fav color</h2>
+            <button v-onclick="showColor"> click here! to show color</button>
+        </div>
+
+        <div>
+            <h2> change my fav color : {{favColor}}</h2>
+            <label for="change-color"> change color</label>
+            <input id="change-color" type="text" v-model="favColor" />
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <script>
+            const appv = new Vue({
+                el: "#appv",
+                data: {
+                    favColor: "bleu"
+                },
+                methods: {
+                    showColor() {
+                        alert(this.favColor)
+                    },
+
+                }
+            })
+        </script>
+
+    </div>
+
+
+
+    <h2> exemple 4</h2>
+    <div id="appen">
+        <label for="username">Nom d'utilisateur</label>
+        <input id="username" type="text" v-model="username" />
+        <h2>{{username}}</h2>
+        <label for="pw">Mot de passe</label>
+        <input id="pw" type="password" v-model="password" />
+        <h2>{{password}}</h2>
+    </div>
+
+    <script>
+        const appen = new Vue({
+            el: '#appen',
+            data: {
+                username: '',
+                password: ''
+            }
+        })
+    </script>
+
+
+    <h2>
+        mini exo step 3
+    </h2>
+
+
+
+
+
+    <div id="appd" class="appd">
+        <h1>{{ restaurantName }}</h1>
+        <p class="description">
+            Bienvenue dans notre café {{ restaurantName }}! Nous sommes réputés pour
+            notre pain et nos merveilleuses pâtisseries. Faites vous plaisir dès le
+            matin ou avec un goûter réconfortant. Mais attention, vous verrez qu'il
+            est difficile de s'arrêter.
+        </p>
+
+        <section class="menu">
+            <h2>Menu</h2>
+            <div class="menu-item">
+                <img class="menu-item__image" src="https://via.placeholder.com/300x150" alt="item.image.alt" />
+                <div>
+                    <h3>Nom de l'article</h3>
+                    <p>En stock</p>
+                    <p>En rupture de stock</p>
+                    <div>
+                        <label for="add-item-quantity">Quantité : {{item.quantity}}</label>
+                        <input id="add-item-quantity" type="number" />
+
+                        <button @click="addToShoppingCart(item.quantity)">Ajouter au panier d'achat</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="shopping-cart">
+            <h2>Panier d'achat: {{shoppingCart}} articles</h2>
+        </aside>
+
+        <h2>Contactez nous</h2>
+        <p>Adresse : {{ address }}</p>
+        <p>Téléphone : {{ phone }}</p>
+        <p>Email : {{ email }}</p>
+        <p>Horaires :</p>
+        <ul>
+            <li>L-V: 06:00 à 16:00</li>
+            <li>Samedi: 07:00 à 14:00</li>
+            <li>Dimanche: 07:00 à 12:00</li>
+        </ul>
+
+        <footer class="footer">
+            <p>Copyright {{ restaurantName }} 2020</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const appd = new Vue({
+            el: "#appd",
+            data: {
+                address: "18 avenue du Beurre, Paris, France",
+                email: "hello@cafewithavue.bakery",
+                phone: "01 88 88 88 88",
+                restaurantName: "La belle vue",
+                simpleMenu: [
+                    {
+                        name: "Croissant",
+                        image: {
+                            source: "./images/croissant.jpg",
+                            alt: "Un croissant"
+                        },
+                        inStock: true,
+                        quantity: 1
+                    },
+                    {
+                        name: "Baguette de pain",
+                        image: {
+                            source: "./images/french-baguette.jpeg",
+                            alt: "Quatre baguettes de pain"
+                        },
+                        inStock: true,
+                        quantity: 1
+                    },
+                    {
+                        name: "Éclair",
+                        image: {
+                            source: "./images/eclair.jpg",
+                            alt: "Éclair au chocolat"
+                        },
+                        inStock: false,
+                        quantity: 1
+                    }
+                ]
+            },
+            computed: {
+                copyright() {
+                    const currentYear = new Date().getFullYear()
+
+                    return `Copyright ${this.restaurantName} ${currentYear}`
+                }
+            },
+            methods : {
+                addToShoppingCart(quantity) {
+                    this.shoppingCart += quantity
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>
