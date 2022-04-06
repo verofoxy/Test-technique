@@ -25,7 +25,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style  lang="scss">
 a {
   color: #2c3e50;
   text-decoration: none;
